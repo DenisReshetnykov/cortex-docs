@@ -394,6 +394,84 @@
 
 <p>You can genareate new token at any time. Both old token and new token can use if it doesn’t expire .</p>
 
+<h2 id="acceptlicense"><code>acceptLicense</code></h2>
+
+<div class="fullwidth">
+
+  <p>End User has to accept our license to use Cortex. If user doesn’t accept, they can not use Cortex anymore.</p>
+
+  <h3 id="parameters-3">Parameters</h3>
+
+  <h4 id="request-3">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-1">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>New Cortex token</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-emotiv-user-accept-the-license">Example: Emotiv user accept the license</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acceptLicense"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <h2 id="queryheadsets"><code>queryHeadsets</code></h2>
 
 <div class="fullwidth">

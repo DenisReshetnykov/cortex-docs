@@ -263,7 +263,7 @@
                     <a href="#authorize" class="toc-h2 toc-link" data-title="Methods"><code>authorize</code></a>
                   </li>
                   <li>
-                    <a href="#generateNewToken" class="toc-h2 toc-link" data-title="Methods"><code>generateNewToken</code></a>
+                    <a href="#acceptlicense" class="toc-h2 toc-link" data-title="Methods"><code>acceptLicense</code></a>
                   </li>
                   <li>
                     <a href="#queryheadsets" class="toc-h2 toc-link" data-title="Methods"><code>queryHeadsets</code></a>
@@ -389,9 +389,9 @@
 
   <p>To install Cortex, get it from the <a href="https://www.emotiv.com/developer/">Cortex download page</a>.</p>
 
-  <p>The installer includes both the Cortex Service and the CortexUI application. The Cortex Service will start automatically after the installation.</p>
+  <p>Installer include Cortex UI application and Cortex Service. Cortex Service will automatic start after you finish install.</p>
 
-  <p>To check if the Cortex Service is running, just open Cortex UI and see if it displays any error message. If there is no error, then the Cortex Service is working.</p>
+  <p>To check Cortex Service is running you try to open Cortex UI. If you can enter to Cortex UI, Cortex Service working well.</p>
 
 </div>
 
@@ -601,13 +601,11 @@ Currently, the request in Cortex is synchronous. We are planning change to suppo
 
 <p>The exception to this is streams of data that you receive from the headset, which do not follow a request-response pattern and do not follow JSON-RPC. They are described below, under <a href="#subscriptions">Subscriptions</a>.</p>
 
-<p>For a more detailed description of JSON-RPC, you can read the <a href="http://www.jsonrpc.org/specification">JSON-RPC 2.0 specification.</a></p>
-
 <h2 id="authorization">Authorization</h2>
 
 <div class="fullwidth">
 
-  <p>By default, you can work with Cortex without client id/ secret. But if you want to access Raw EEG data and high-resolution performance metrics, you have to call the <a href="#authorize"><code>authorize</code> method</a> with a client ID and secret. These are specific to your application and used for security and to prevent abuse. You can request a client ID and secret <a href="https://www.emotiv.com/my-account/cortex-apps">on our developer page</a>.</p>
+  <p>By default, You can work with Cortex without client id/ secret. But if you want to access Raw EEG data and high-resolution performance metrics, you have to call the <a href="#authorize"><code>authorize</code> method</a> with a client ID and secret. These are specific to your application and used for security and to prevent abuse. You can request a client ID and secret <a href="https://www.emotiv.com/my-account/cortex-apps">on your “my account” page</a>.</p>
 
 </div>
 
@@ -872,7 +870,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
 
 <div class="fullwidth">
 
-  <p>You need to provide a username and password of user from the <a href="https://id.emotivcloud.com/eoidc/api-auth/login/">Emotiv Cloud</a>, and the client id/secret for your Cortex application.</p>
+  <p>You need to provide a username and password of user from the <a href="https://id.emotivcloud.com/eoidc/api-auth/login/">Emotiv Cloud</a>, and the client id/secret for your application.</p>
 
   <h3 id="parameters">Parameters</h3>
 
@@ -1064,7 +1062,6 @@ Otherwise the number associated with the marker trigger (positive number), or th
     </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"...."</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
 <h2 id="authorize"><code>authorize</code></h2>
 
 <div class="fullwidth">
@@ -1111,7 +1108,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>debit</td>
         <td>number</td>
         <td>No</td>
-        <td>Number of session that will be debited from your license. It determines how many sessions you will be able to activate with the authentication token. (if don’t set default <code>debit</code> = 0)</td>
+        <td>Number of session will use on local machine (if don’t set default <code>debit</code> = 0)</td>
       </tr>
     </tbody>
   </table>
@@ -1175,6 +1172,8 @@ Otherwise the number associated with the marker trigger (positive number), or th
 
 <h3 id="example-full-user">Example: Full user</h3>
 
+<p>If you don’t set a specific license, Cortex will use oldest license which is activated.</p>
+
 <blockquote>
   <p>Request</p>
 </blockquote>
@@ -1217,62 +1216,9 @@ Otherwise the number associated with the marker trigger (positive number), or th
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This is an authorize with a client id and secret, which you get when you sign up for an application.</p>
+<p>This is an authorize with a client id and secret, which you get when you sign up for an application. For more information, see the <a href="#authorization">Authorization</a> section in Concepts.</p>
 
-<p>You must provide a Client ID and a Client Secret. You must set the debit parameter to 1 or more. If you don’t set a specific license, Cortex will use oldest license which is activated.</p>
-
-<p>For more information, see the <a href="#authorization">Authorization</a> section in Concepts.</p>
-
-
-<h2 id="generateNewToken"><code>generateNewToken</code></h2>
-<div class="fullwidth">
-    <p>Generate a new authentication token.</p>
-
-<h3 id="parameters-2">Parameters</h3>
-
-<h4 id="request-2">Request</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Type</th>
-      <th>Required</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>token</td>
-      <td>string</td>
-      <td>Yes</td>
-      <td>A valid (not expired) authentication token</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response">Response</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>_auth</td>
-      <td>string (<a href="#auth-token">Auth Token</a>)</td>
-      <td>Token for use in subsequent calls</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-<h3 id="example-token-refresh">Example</h3>
+<h3 id="example-token-refresh">Example: Token refresh</h3>
 
 <blockquote>
   <p>Request</p>
@@ -1313,6 +1259,84 @@ Otherwise the number associated with the marker trigger (positive number), or th
 <p>This will return a new token for you to use.</p>
 
 <p>You can genareate new token at any time. Both old token and new token can use if it doesn’t expire .</p>
+
+<h2 id="acceptlicense"><code>acceptLicense</code></h2>
+
+<div class="fullwidth">
+
+  <p>End User has to accept our license to use Cortex. If user doesn’t accept, they can not use Cortex anymore.</p>
+
+  <h3 id="parameters-3">Parameters</h3>
+
+  <h4 id="request-3">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-1">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>New Cortex token</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-emotiv-user-accept-the-license">Example: Emotiv user accept the license</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acceptLicense"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="queryheadsets"><code>queryHeadsets</code></h2>
 
@@ -1610,25 +1634,25 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>status</td>
         <td>string (<a href="#sessions">session state</a>)</td>
         <td>Yes</td>
-        <td>Initial session status. Possible values are "open" and "active"</td>
+        <td>Initial session status</td>
       </tr>
       <tr>
         <td>headset</td>
         <td>string</td>
         <td>No</td>
-        <td>The ID of the headset you want to work with. If not set Cortex will use the first connected headset.</td>
+        <td>Headset ID link with session (if not set Cortex will link with first headset connected)</td>
       </tr>
       <tr>
         <td>project</td>
         <td>string</td>
         <td>No</td>
-        <td>Project name for the session</td>
+        <td>Project name for session</td>
       </tr>
       <tr>
         <td>title</td>
         <td>string</td>
         <td>No</td>
-        <td>Title of the session</td>
+        <td>Title name for session</td>
       </tr>
       <tr>
         <td>subject</td>
@@ -1821,7 +1845,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
 
 <div class="fullwidth">
 
-  <p>Updates an existing session. You can use this to start or stop recording the EEG data (by modifying the session's status) or change the metadata associated with that session.</p>
+  <p>Updates an existing session. You can use this to start or stop recording from the EEG (by modifying its status) or change the metadata associated with that session.</p>
 
   <p>For more information about sessions and state management, see the <a href="#sessions">Sessions</a> section in Concepts.</p>
 
@@ -1847,13 +1871,13 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>session</td>
         <td>string</td>
         <td>No</td>
-        <td>Session ID. If this param is not set, Cortex will use the first opened or activated session</td>
+        <td>session ID . If this param not set, Cortex will get first session in session list do not close</td>
       </tr>
       <tr>
         <td>status</td>
         <td>string (<a href="#sessions">session state</a>)</td>
         <td>Yes</td>
-        <td>New session status. See below for the possible values.</td>
+        <td>New session status</td>
       </tr>
       <tr>
         <td>recordingName</td>
@@ -1913,11 +1937,11 @@ Otherwise the number associated with the marker trigger (positive number), or th
     <tbody>
       <tr>
         <td>“active”</td>
-        <td>Activate an opened session.</td>
+        <td>Set active for session.</td>
       </tr>
       <tr>
         <td>“close”</td>
-        <td>Close the session</td>
+        <td>Close session</td>
       </tr>
       <tr>
         <td>“startRecord”</td>
@@ -1925,15 +1949,15 @@ Otherwise the number associated with the marker trigger (positive number), or th
       </tr>
       <tr>
         <td>“stopRecord”</td>
-        <td>Stop a record on this session</td>
+        <td>Stop record on this session</td>
       </tr>
       <tr>
         <td>“addTags”</td>
-        <td>Add a tag to this session</td>
+        <td>Add tag for this session</td>
       </tr>
       <tr>
         <td>“removeTags”</td>
-        <td>Remove a tag from this session</td>
+        <td>Remove tag for this session</td>
       </tr>
     </tbody>
   </table>
@@ -2039,7 +2063,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
 
 <div class="fullwidth">
 
-  <p>Shows details of all sessions on the local machine for the current user. Sessions can be queried by any field of <a href="#session-object">Session object</a>.</p>
+  <p>Shows details of all sessions on the local machine of current user. Sessions can be queried by any field of <a href="#session-object">Session object</a>.</p>
 
   <p>For more information about sessions, see the <a href="#sessions">Sessions</a> section in Concepts.</p>
 
@@ -2066,7 +2090,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
       <tr>
         <td>query</td>
         <td>json</td>
-        <td>No</td>
+        <td>Yes</td>
         <td>Query param</td>
       </tr>
     </tbody>
@@ -2202,7 +2226,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
 
 <div class="fullwidth">
 
-  <p>If you created a record on a session, then you can edit the note for that record, even the session is closed.</p>
+  <p>If you created a recording on a session. You can edit note for that reocord even the session closed</p>
 
   <h4 id="request">Request</h4>
 
@@ -2369,7 +2393,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>session</td>
         <td>string</td>
         <td>No</td>
-        <td>Session id to subscribe to. If this parameter is not set, Cortex will use the first session that is not closed.</td>
+        <td>session id to subscribe (If this param not set, Cortex will get first session in session list do not close)</td>
       </tr>
       <tr>
         <td>replay</td>
@@ -2394,7 +2418,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
       <tr>
         <td>array of streams info</td>
         <td>json array</td>
-        <td>Each element in the array is either a Stream Info object, or an Error object (with a code and a message)<br/>So you must check each element individualy for error.</td>
+        <td> </td>
       </tr>
     </tbody>
   </table>
@@ -2413,17 +2437,17 @@ Otherwise the number associated with the marker trigger (positive number), or th
       <tr>
         <td>stream name</td>
         <td>string (<a href="#streams">stream type</a>)</td>
-        <td>Stream to subscribe to</td>
+        <td>Streams to subscribe to</td>
       </tr>
       <tr>
         <td>cols</td>
         <td>array of strings</td>
-        <td>Description of the values you will get from this data stream.</td>
+        <td>column name and the order</td>
       </tr>
       <tr>
         <td>sid</td>
         <td>string</td>
-        <td>Subscription id (same as the session id)</td>
+        <td>subscription id</td>
       </tr>
     </tbody>
   </table>
@@ -2515,7 +2539,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>session</td>
         <td>string</td>
         <td>No</td>
-        <td>Session id to unsubscribe from. If this parameter is not set, Cortex will use the first session that is not closed.</td>
+        <td>session id to subscribe (If this param not set, Cortex will get first session in session list do not close)</td>
       </tr>
       <tr>
         <td>replay</td>
@@ -2584,7 +2608,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
 
 <div class="fullwidth">
 
-  <p>Injects a marker into the data stream of a session. The marker will appear in eeg event of that session.</p>
+  <p>Injects a marker into the data stream for a headset. The marker will appear in eeg event of that session.</p>
 
   <p>For more information about sessions, see the <a href="#sessions">Sessions</a> section in Concepts, and for a general overview of streams and subscriptions, see <a href="#subscriptions">Subscriptions</a>.</p>
 
@@ -2612,7 +2636,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>session</td>
         <td>string</td>
         <td>No</td>
-        <td>The session id. If this parameter is not set, Cortex will use the first session that is not closed.</td>
+        <td>session id to subscribe (If this param not set, Cortex will get first session in session list do not close)</td>
       </tr>
       <tr>
         <td>label</td>
@@ -2624,13 +2648,13 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>value</td>
         <td>json (number or string)</td>
         <td>No</td>
-        <td>The value of the marker. Use this parameter to mark a ponctual event, or the beginning of a period of time.<br/>If you set this parameter, then do not set the stop parameter.</td>
+        <td>marker value</td>
       </tr>
       <tr>
         <td>stop</td>
         <td>json (number or string)</td>
         <td>No</td>
-        <td>Stop value. Use this parameter to mark the end of a period of time.<br/>If you set this parameter, then do not set the value parameter.</td>
+        <td>stop value (Only use for marker recording)</td>
       </tr>
       <tr>
         <td>port</td>
@@ -2642,7 +2666,7 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>time</td>
         <td>number</td>
         <td>Yes</td>
-        <td><a href="https://en.wikipedia.org/wiki/Unix_time">Epoch time</a> Timestamp for marker event, in milliseconds.</td>
+        <td><a href="https://en.wikipedia.org/wiki/Unix_time">Epoch time</a> Timestamp for marker event</td>
       </tr>
     </tbody>
   </table>
@@ -2813,7 +2837,6 @@ Otherwise the number associated with the marker trigger (positive number), or th
 <div class="fullwidth">
 
   <p>This request return all useful informations for set up training Mental Command and Facial Expression.</p>
-  <p>To do the actual training, see the <a href="#training">training</a> method below.</p>
 
   <h3 id="parameters">Parameters</h3>
 
@@ -2852,17 +2875,17 @@ Otherwise the number associated with the marker trigger (positive number), or th
       <tr>
         <td>actions</td>
         <td>array of strings</td>
-        <td>The actions you can train</td>
+        <td>list action can training</td>
       </tr>
       <tr>
         <td>controls</td>
         <td>array of strings</td>
-        <td>The controls you can use with the training method</td>
+        <td>list control can set</td>
       </tr>
       <tr>
         <td>events</td>
         <td>array of strings</td>
-        <td>The events you can receive from the <a href="#sys-event">system event</a> data stream when you do the training.</td>
+        <td>list event can receive from <a href="#sys-event">system event</a></td>
       </tr>
     </tbody>
   </table>
@@ -2949,14 +2972,6 @@ Otherwise the number associated with the marker trigger (positive number), or th
 
   <p>Set up training for Mental Comand or Facial Expression</p>
 
-  <p>First, you should <a href="#subscribe">subscribe</a> to the "sys" data stream. This stream will give you useful feedback about the training. See <a href="#sys-event">sys event</a> for details.</p>
-
-  <p>Then, call the training method with an action of your choice and the "start" status. You will receive a "Started" event for the "sys" data stream.<br/>Note: if this is your first training, then you should start with the neutral action.</p>
-
-  <p>After a few seconds, you will receive either a "Failed" event, or a "Succeeded" event. In the case of a "Failed" event, you have to start the training again.<br/>In the case of a "Succeeded" event, you should call the training method with the "accept" status, to complete the training. Or you can use the "reject" status to cancel this training.</p>
-
-  <p>Finally, you will receive a "Completed" event in response to your "accept", or a "Rejected" event in response to your "reject". At this point, the training is over, and you can start training another action. You can also train the same action many times.</p>
-
   <h3 id="parameters-1">Parameters</h3>
 
   <h4 id="request-1">Request</h4>
@@ -2981,19 +2996,19 @@ Otherwise the number associated with the marker trigger (positive number), or th
         <td>detection</td>
         <td>string</td>
         <td>Yes</td>
-        <td>The name of the detection you want to train. Must be “mentalCommand” or “facialExpression”.</td>
+        <td>The name of detection (“mentalCommand” or “facialExpression”)</td>
       </tr>
       <tr>
         <td>session</td>
         <td>string</td>
         <td>No</td>
-        <td>The session ID. If this parameter is not set, Cortex will use the first session that is not closed.</td>
+        <td>session ID . If this param not set, Cortex will get first session in session list do not close</td>
       </tr>
       <tr>
         <td>action</td>
         <td>string</td>
         <td>Yes</td>
-        <td>The action you want to train. Get from the field <code>actions</code> in response of request <a href="#getdetectioninfo">get detection info</a></td>
+        <td>Action will train. Get from the field <code>actions</code> in response of request <a href="#getdetectioninfo">get detection info</a></td>
       </tr>
       <tr>
         <td>status</td>
