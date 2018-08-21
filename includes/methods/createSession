@@ -60,6 +60,31 @@
         <td>No</td>
         <td>specific experiment id for the application</td>
       </tr>
+      <tr>
+        <td>sensors</td>
+        <td>array of strings</td>
+        <td>No</td>
+        <td>Set mapping channel for flex headset. The size of array should be 34 (include 2 reference channels and 32 eeg channels). 2 first elements is CMS and DRL. the last channels follow the order LA - LQ and RA - RQ. Set element is empty string if you don’t set mapping for this channel. Example: don’t set mapping for LA -&gt; [“Fz”,”Afz”,”“,…….]</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h5 id="channel-name-is-available-for-flex-headset">Channel name is available for Flex headset:</h5>
+
+  <table>
+    <tbody>
+      <tr>
+        <td>Cz, FCz, Fz, Afz, Fpz, Fp1, AF3, AF7, F9, F7, F5, F3, F1, FC1, C1, C3, FC3, FC5</td>
+      </tr>
+      <tr>
+        <td>FT7, FT9, T7, C5, TP9, TP7, CP5, CP3, CP1, P1, P3, P5, P7, P9, PO9, PO7, PO3, O1</td>
+      </tr>
+      <tr>
+        <td>O9, CPz, Pz, POz, Oz, Iz, O10, O2, PO4, PO8, PO10, P10, P8, P6, P4, P2, CP2, CP4</td>
+      </tr>
+      <tr>
+        <td>CP6, TP8, TP10, C6, T8, FT10, FT8, FC6, FC4, C4, C2, FC2, F2, F4, F6, F8, F10, AF8, AF4, Fp2</td>
+      </tr>
     </tbody>
   </table>
 
@@ -234,3 +259,77 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>In this example we set a custom title, project, and subject.</p>
+
+<h3 id="example-create-session-with-flex-headset">Example: Create session with Flex headset</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"createSession"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"headset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EPOCFLEX-DEADBEEF"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sensors"</span><span class="p">:</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Fz"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Afz"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AF3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AF4"</span><span class="p">,</span><span class="w">
+          </span><span class="err">.....</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"appId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"headset"</span><span class="p">:</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"connectedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dongle"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dongle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6ff"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"firmware"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EPOCFLEX-DEADBEEF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sensors"</span><span class="p">:</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Fz"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Afz"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AF3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AF4"</span><span class="p">,</span><span class="w">
+          </span><span class="err">.....</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> 
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"eegRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"eegRes"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"memsRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"memsRes"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EPOCFLEX"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af349e3e-c72b-44c9-992c-5ee1905cfdaa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"logs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"markers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T18:25:08Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opened"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stopped"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>

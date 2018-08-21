@@ -62,7 +62,7 @@
       </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -170,7 +170,7 @@
     </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logout"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -318,7 +318,7 @@
     </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+      </span><span class="s2">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"debit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
@@ -468,6 +468,126 @@
     </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="getlicenseinfo"><code>getLicenseInfo</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get Info of the current license.</p>
+
+  <h3 id="parameters-4">Parameters</h3>
+
+  <h4 id="request-4">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-2">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>is_commercial</td>
+        <td>bool</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>recording_count</td>
+        <td>number</td>
+        <td>the number of recording already used</td>
+      </tr>
+      <tr>
+        <td>license_id</td>
+        <td>string</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>scopes</td>
+        <td>array of string</td>
+        <td>scope of the license</td>
+      </tr>
+      <tr>
+        <td>max_record</td>
+        <td>number or string</td>
+        <td>number of record can use or “unlimited”</td>
+      </tr>
+      <tr>
+        <td>valid_from</td>
+        <td>string</td>
+        <td>the time of license become valid</td>
+      </tr>
+      <tr>
+        <td>valid_to</td>
+        <td>string</td>
+        <td>the time of license will be expired</td>
+      </tr>
+      <tr>
+        <td>seat_count</td>
+        <td>number</td>
+        <td>the number of seat</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-get-infomation-of-commercial-license">Example: Get infomation of commercial license</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"getLicenseInfo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"is_commercial"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"license_id"</span><span class="p">:</span><span class="s2">"d289ccbd-8098-4e19-9827-dbe450196c56"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"max_record"</span><span class="p">:</span><span class="s2">"unlimited"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"recording_count"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scopes"</span><span class="p">:[</span><span class="s2">"eeg"</span><span class="p">,</span><span class="s2">"commercial"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"seat_count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"valid_from"</span><span class="p">:</span><span class="s2">"2018-06-18T07:00:00+07:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"valid_to"</span><span class="p">:</span><span class="s2">"2018-07-18T07:00:00+07:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -667,12 +787,12 @@
         <td>command</td>
         <td>string</td>
         <td>Yes</td>
-        <td>must be “connect” or “disconnect”</td>
+        <td>must be “connect”,”disconnect” or “refresh”</td>
       </tr>
       <tr>
         <td>headset</td>
         <td>string</td>
-        <td>Yes</td>
+        <td>No</td>
         <td>headset ID</td>
       </tr>
     </tbody>
@@ -799,6 +919,31 @@
         <td>number</td>
         <td>No</td>
         <td>specific experiment id for the application</td>
+      </tr>
+      <tr>
+        <td>sensors</td>
+        <td>array of strings</td>
+        <td>No</td>
+        <td>Set mapping channel for flex headset. The size of array should be 34 (include 2 reference channels and 32 eeg channels). 2 first elements is CMS and DRL. the last channels follow the order LA - LQ and RA - RQ. Set element is empty string if you don’t set mapping for this channel. Example: don’t set mapping for LA -&gt; [“Fz”,”Afz”,”“,…….]</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h5 id="channel-name-is-available-for-flex-headset">Channel name is available for Flex headset:</h5>
+
+  <table>
+    <tbody>
+      <tr>
+        <td>Cz, FCz, Fz, Afz, Fpz, Fp1, AF3, AF7, F9, F7, F5, F3, F1, FC1, C1, C3, FC3, FC5</td>
+      </tr>
+      <tr>
+        <td>FT7, FT9, T7, C5, TP9, TP7, CP5, CP3, CP1, P1, P3, P5, P7, P9, PO9, PO7, PO3, O1</td>
+      </tr>
+      <tr>
+        <td>O9, CPz, Pz, POz, Oz, Iz, O10, O2, PO4, PO8, PO10, P10, P8, P6, P4, P2, CP2, CP4</td>
+      </tr>
+      <tr>
+        <td>CP6, TP8, TP10, C6, T8, FT10, FT8, FC6, FC4, C4, C2, FC2, F2, F4, F6, F8, F10, AF8, AF4, Fp2</td>
       </tr>
     </tbody>
   </table>
@@ -974,6 +1119,80 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>In this example we set a custom title, project, and subject.</p>
+
+<h3 id="example-create-session-with-flex-headset">Example: Create session with Flex headset</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"createSession"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"headset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EPOCFLEX-DEADBEEF"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sensors"</span><span class="p">:</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Fz"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Afz"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AF3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AF4"</span><span class="p">,</span><span class="w">
+          </span><span class="err">.....</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"appId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"headset"</span><span class="p">:</span><span class="w"> 
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"connectedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dongle"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dongle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6ff"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"firmware"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EPOCFLEX-DEADBEEF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sensors"</span><span class="p">:</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Fz"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Afz"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AF3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AF4"</span><span class="p">,</span><span class="w">
+          </span><span class="err">.....</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> 
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"eegRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"eegRes"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"memsRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"memsRes"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EPOCFLEX"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af349e3e-c72b-44c9-992c-5ee1905cfdaa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"logs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"markers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T18:25:08Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opened"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stopped"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="updatesession"><code>updateSession</code></h2>
 
@@ -2017,6 +2236,11 @@
         <td>list control can set</td>
       </tr>
       <tr>
+        <td>signature</td>
+        <td>array of strings</td>
+        <td>if the detection is “facialExpression” this show the signature type</td>
+      </tr>
+      <tr>
         <td>events</td>
         <td>array of strings</td>
         <td>list event can receive from <a href="#sys-event">system event</a></td>
@@ -2218,6 +2442,1033 @@
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Set up training successfully for action neutral with status start"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<h2 id="gettrainingtime"><code>getTrainingTime</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get training time during a training</p>
+
+  <h3 id="parameters-2">Parameters</h3>
+
+  <h4 id="request-2">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>detection</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>The name of detection (“mentalCommand” or “facialExpression”)</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>YeS</td>
+        <td>session ID</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-2">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(entire reponse)</td>
+        <td>number</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-get-training-time-of-mental-command">Example: Get Training time of Mental Command</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"getTrainingTime"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"detection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mentalCommand"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="gettrainedsignatureactions"><code>getTrainedSignatureActions</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get trained actions in a profile file</p>
+
+  <h3 id="parameters-3">Parameters</h3>
+
+  <h4 id="request-3">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>detection</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>The name of detection (“mentalCommand” or “facialExpression”)</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If session not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-3">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>trained_actions</td>
+        <td>array of json object</td>
+        <td>action name and number of times training</td>
+      </tr>
+      <tr>
+        <td>total_times_training</td>
+        <td>number</td>
+        <td>total number of times training and never reset. This value is incremented each times call start training successful for any action.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example">Example:</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"getTrainedSignatureActions"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"detection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mentalCommand"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> 
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"trained_actions"</span><span class="p">:</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pull"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"times"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"total_times_training"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">  
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="mentalcommandgetskillrating"><code>mentalCommandGetSkillRating</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get skill rating of action or overall skill rating</p>
+
+  <h3 id="parameters-4">Parameters</h3>
+
+  <h4 id="request-4">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>action</td>
+        <td>string</td>
+        <td>No</td>
+        <td>Action will get. Get from the field <code>actions</code> in response of request <a href="#getdetectioninfo">get detection info</a> . if <code>action</code> not set that mean get overall skill rating</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If <code>session</code> not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-4">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(entire reponse)</td>
+        <td>number</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-get-skill-rating-of-action-push">Example: Get skill rating of action <code>push</code></h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mentalCommandGetSkillRating"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="mentalcommandactionsensitivity"><code>mentalCommandActionSensitivity</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get senvitivity of activated actions</p>
+
+  <h3 id="parameters-5">Parameters</h3>
+
+  <h4 id="request-5">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If <code>session</code> not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>Shoule be “set” or “get”</td>
+      </tr>
+      <tr>
+        <td>values</td>
+        <td>array of numbers with 4 elements</td>
+        <td>No</td>
+        <td>Depend on the order of element will set senvitivity for activated action 1 - 4, range of value (min: 1, max: 10)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-5">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(entire reponse)</td>
+        <td>string or array of number depend on the request <code>set</code> or <code>get</code></td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-get-senvitivity-of-activated-actions">Example: Get senvitivity of activated actions</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mentalCommandActionSensitivity"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="mentalcommandactionlevel"><code>mentalCommandActionLevel</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get/Set the overall sensitivity for all MentalCommand actions</p>
+
+  <h3 id="parameters-6">Parameters</h3>
+
+  <h4 id="request-6">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If <code>session</code> not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>Shoule be “set” or “get”</td>
+      </tr>
+      <tr>
+        <td>level</td>
+        <td>number</td>
+        <td>No</td>
+        <td>value of the overall sensitivity (lowest: 1, highest: 7)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-6">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(entire reponse)</td>
+        <td>string or number depend on the request <code>set</code> or <code>get</code></td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-get-senvitivity-of-activated-actions-1">Example: Get senvitivity of activated actions</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mentalCommandActionLevel"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="mentalcommandactiveaction"><code>mentalCommandActiveAction</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get/Set active MentalCommand actions</p>
+
+  <h3 id="parameters-7">Parameters</h3>
+
+  <h4 id="request-7">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If <code>session</code> not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>Shoule be “set” or “get”</td>
+      </tr>
+      <tr>
+        <td>actions</td>
+        <td>array of strings</td>
+        <td>No</td>
+        <td>List of action will active. Get from the field <code>actions</code> in response of request <a href="#getdetectioninfo">get detection info</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-7">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(entire reponse)</td>
+        <td>string or array of strings depend on the request <code>set</code> or <code>get</code></td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-1">Example:</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mentalCommandActiveAction"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"pull"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="facialexpressionsignaturetype"><code>facialExpressionSignatureType</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get/Set signature type for Facial Expression</p>
+
+  <h3 id="parameters-8">Parameters</h3>
+
+  <h4 id="request-8">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If <code>session</code> not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>Shoule be “set” or “get”</td>
+      </tr>
+      <tr>
+        <td>signature</td>
+        <td>string</td>
+        <td>No</td>
+        <td>Signature type will apply for Facial Expression. Get from the field <code>signature</code> in response of request <a href="#getdetectioninfo">get detection info</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-8">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>currentSig</td>
+        <td>string</td>
+        <td>current signature is using</td>
+      </tr>
+      <tr>
+        <td>availableSig</td>
+        <td>array of strings</td>
+        <td>list available signature can apply</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-get-facial-expression-signature-type">Example: Get facial expression signature type</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facialExpressionSignatureType"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"currentSig"</span><span class="p">:</span><span class="s2">"universal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"availableSig"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"universal"</span><span class="p">,</span><span class="s2">"trained"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="facialexpressionthreshold"><code>facialExpressionThreshold</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get/Set threshold for FacialExpression</p>
+
+  <h3 id="parameters-9">Parameters</h3>
+
+  <h4 id="request-9">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If <code>session</code> not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>Shoule be “set” or “get”</td>
+      </tr>
+      <tr>
+        <td>action</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>Action will use. Get from the field <code>actions</code> in response of request <a href="#getdetectioninfo">get detection info</a></td>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>number</td>
+        <td>No</td>
+        <td>threshold value will set (min: 0, max: 1000)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-9">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(entire reponse)</td>
+        <td>string</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-get-threshold-value-of-action-surprise">Example: Get threshold value of action <code>surprise</code></h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facialExpressionThreshold"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surprise"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="mentalcommandtrainingthreshold"><code>mentalCommandTrainingThreshold</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get threshold of MentalCommand</p>
+
+  <h3 id="parameters-10">Parameters</h3>
+
+  <h4 id="request-10">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If <code>session</code> not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-10">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>currentThreshold</td>
+        <td>number</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>lastTrainingScore</td>
+        <td>number</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-2">Example:</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mentalCommandTrainingThreshold"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"currentThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.833333313465118</span><span class="w">
+    </span><span class="s2">"lastTrainingScore"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="mentalcommandbrainmap"><code>mentalCommandBrainMap</code></h2>
+
+<div class="fullwidth">
+
+  <p>Get Brain Map of MentalCommand training action</p>
+
+  <h3 id="parameters-11">Parameters</h3>
+
+  <h4 id="request-11">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>session</td>
+        <td>string</td>
+        <td>No</td>
+        <td>session ID. If <code>session</code> not set that mean just read info from local profile file</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>profile name</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-11">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>action</td>
+        <td>string</td>
+        <td>traning action</td>
+      </tr>
+      <tr>
+        <td>coordinates</td>
+        <td>json array</td>
+        <td>first element is x coordinate, second is y coordinate (range of value from -1 to 1)</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-3">Example:</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mentalCommandBrainMap"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"neutral"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="queryprofile"><code>queryProfile</code></h2>
 
@@ -2261,7 +3512,7 @@
     <tbody>
       <tr>
         <td>(entire reponse)</td>
-        <td>array of strings</td>
+        <td>array of json object</td>
         <td>All profiles of user</td>
       </tr>
     </tbody>
@@ -2302,7 +3553,23 @@
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"test1"</span><span class="p">,</span><span class="s2">"test2"</span><span class="p">,</span><span class="s2">"test3"</span><span class="p">]</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="err">test</span><span class="mi">1</span><span class="s2">",
+          "</span><span class="err">meta</span><span class="s2">":
+          {
+            "</span><span class="err">creation_time</span><span class="s2">":"</span><span class="mi">2017-12-18</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">14.288547</span><span class="err">+</span><span class="mi">07</span><span class="p">:</span><span class="mi">00</span><span class="s2">"
+          }
+      },
+      {
+          "</span><span class="err">name</span><span class="s2">":test2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"meta"</span><span class="p">:</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="s2">"2017-11-18T15:17:14.288547+07:00"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h2 id="setupprofile"><code>setupProfile</code></h2>
@@ -2334,14 +3601,20 @@
       <tr>
         <td>headset</td>
         <td>string</td>
-        <td>Yes</td>
-        <td>headset ID</td>
+        <td>No</td>
+        <td>headset ID. This field is required when load or save profile</td>
       </tr>
       <tr>
         <td>profile</td>
         <td>string</td>
         <td>Yes</td>
         <td>profile name</td>
+      </tr>
+      <tr>
+        <td>newProfileName</td>
+        <td>string</td>
+        <td>No</td>
+        <td>new profile name when you want to rename profile</td>
       </tr>
       <tr>
         <td>status</td>
@@ -2375,8 +3648,12 @@
         <td>load training data from profile</td>
       </tr>
       <tr>
-        <td>“upload”</td>
-        <td>upload training profile to server</td>
+        <td>“unload”</td>
+        <td>remove training data of one profile in Cortex</td>
+      </tr>
+      <tr>
+        <td>“rename”</td>
+        <td>rename training profile file</td>
       </tr>
       <tr>
         <td>“delete”</td>
@@ -2447,4 +3724,350 @@
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create profile test successfully"</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="getcurrentprofile"><code>getCurrentProfile</code></h2>
+
+<div class="fullwidth">
+
+  <p>This method help you check have any profile linking with a specific headset</p>
+
+  <h3 id="parameters-2">Parameters</h3>
+
+  <h4 id="request-2">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>headset</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>headset ID.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response-2">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>json</td>
+        <td>string</td>
+        <td>return null if does not have any profile.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example">Example</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"getCurrentProfile"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"headset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSIGHT-DEADBEEF"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="decryptdata"><code>decryptData</code></h2>
+
+<div class="fullwidth">
+
+  <p>Decrypt file data recorded by extender. After Cortex finishes decrypt file will appear a warning message</p>
+
+  <h4 id="request">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>folderPath</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>The folder contains data file</td>
+      </tr>
+      <tr>
+        <td>outputPath</td>
+        <td>string</td>
+        <td>No</td>
+        <td>The output folder will store decrypted files. If not set, Cortex will store same input folder.</td>
+      </tr>
+      <tr>
+        <td>license</td>
+        <td>string</td>
+        <td>No</td>
+        <td>License ID of user. If not set, Cortex will use License ID from (<a href="#auth-token">Auth Token</a>).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(entire reponse)</td>
+        <td>string</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="warning">Warning</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>code</td>
+        <td>number</td>
+        <td>warning code (4: Succes, 5: Fail)</td>
+      </tr>
+      <tr>
+        <td>message</td>
+        <td>string</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-decrypt-data">Example: Decrypt data</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decryptData"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="w">
+    </span><span class="s2">"folderPath"</span><span class="p">:</span><span class="s2">"..."</span><span class="w">
+    </span><span class="s2">"outputPath"</span><span class="p">:</span><span class="s2">".."</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cortex has started the process of extract the data"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Warning</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"warning"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+    	</span><span class="s2">"code"</span><span class="p">:</span><span class="mi">4</span><span class="w">
+    	</span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Export data from path ... to path ... successful"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="configmapping"><code>configMapping</code></h2>
+
+<div class="fullwidth">
+
+  <p>this method helps user create and save mapping channel for Flex headset</p>
+
+  <h4 id="request">Request</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_auth</td>
+        <td>string (<a href="#auth-token">Auth Token</a>)</td>
+        <td>Yes</td>
+        <td>Auth token</td>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td>string</td>
+        <td>Yes</td>
+        <td>user operation. status can be “get”, “create”, “read”, “update”, “delete”</td>
+      </tr>
+      <tr>
+        <td>uuid</td>
+        <td>string</td>
+        <td>No</td>
+        <td>uuid of config. Set this value when read/update/delete config</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>string</td>
+        <td>No</td>
+        <td>name of config. Set this value when create/update mapping</td>
+      </tr>
+      <tr>
+        <td>mapping</td>
+        <td>object</td>
+        <td>No</td>
+        <td>mapping value of config. Set this value when create/update config</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="mapping-format">Mapping format</h4>
+
+  <p>Mapping is json object with 32 key. The value of key in Channel column</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Channel</th>
+        <th>Sensor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>“LA”</td>
+        <td>“AF3”</td>
+      </tr>
+      <tr>
+        <td>“LB”</td>
+        <td>“AF4”</td>
+      </tr>
+      <tr>
+        <td>…….</td>
+        <td>……</td>
+      </tr>
+      <tr>
+        <td>“RQ”</td>
+        <td>“O1”</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 id="response">Response</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(entire reponse)</td>
+        <td>object or string</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="example-create-mapping">Example: Create mapping</h3>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json tab-json--raw"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"configMapping"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_auth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"config1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mapping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Config mapping channel successful"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>

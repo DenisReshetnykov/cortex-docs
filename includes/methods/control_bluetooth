@@ -42,12 +42,12 @@
         <td>command</td>
         <td>string</td>
         <td>Yes</td>
-        <td>must be “connect” or “disconnect”</td>
+        <td>must be “connect”,”disconnect” or “refresh”</td>
       </tr>
       <tr>
         <td>headset</td>
         <td>string</td>
-        <td>Yes</td>
+        <td>No</td>
         <td>headset ID</td>
       </tr>
     </tbody>

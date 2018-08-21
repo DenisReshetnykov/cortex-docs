@@ -220,7 +220,7 @@ Currently, the request in Cortex is synchronous. We are planning change to suppo
         <td>Device data include battery level , signal strength, and signal quality all of channel headset</td>
       </tr>
       <tr>
-        <td><a href="#pow-evemt">pow</a></td>
+        <td><a href="#pow-event">pow</a></td>
         <td>Band Power data</td>
       </tr>
       <tr>
